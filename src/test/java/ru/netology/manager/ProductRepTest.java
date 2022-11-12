@@ -10,7 +10,7 @@ class ProductRepTest {
     Product product2 = new Book(112, "Modern Dictionary", 2345, "Oxford Publishing");
     Product product3 = new Book(123, "JAVA for Dummies", 1890, "Barry Burd");
     Product product4 = new Smartphone(501, "Samsung", 70000, "Android Inc.");
-    Product product5 = new Smartphone(512, "Iphone13", 130000, "Apple");
+    Product product5 = new Smartphone(512, "IPhone13", 130000, "Apple");
     Product product6 = new Smartphone(523, "AndroidPhone", 1000, "Android Inc.");
 
     private ProductRep repo = new ProductRep();
