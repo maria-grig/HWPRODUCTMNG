@@ -22,4 +22,50 @@ class ProductRepTest {
         assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void shouldFindAll() {
+        repo.save(product1);
+        repo.save(product2);
+        repo.save(product3);
+        repo.save(product4);
+        repo.save(product5);
+        repo.save(product6);
+        Product[] expected = {product1, product2, product3, product4, product5, product6};
+        Product[] actual = repo.findAll();
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldRemoveById() {
+        repo.save(product1);
+        repo.save(product2);
+        repo.save(product3);
+        repo.save(product4);
+        repo.save(product5);
+        repo.save(product6);
+        repo.removeById(512);
+        Product[] expected = {product5};
+        Product[] actual = repo.findAll();
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldRemoveAllById() {
+        repo.save(product1);
+        repo.save(product2);
+        repo.save(product3);
+        repo.save(product4);
+        repo.save(product5);
+        repo.save(product6);
+        repo.removeById(101);
+        repo.removeById(112);
+        repo.removeById(123);
+        repo.removeById(501);
+        repo.removeById(512);
+        repo.removeById(523);
+        Product[] expected = {product1, product2, product3, product4, product5, product6};
+        Product[] actual = repo.findAll();
+        assertArrayEquals(expected, actual);
+    }
+
 }
