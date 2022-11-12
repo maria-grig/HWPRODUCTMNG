@@ -1,9 +1,13 @@
 package ru.netology.manager;
 
 public class ProductMng {
-        private ProductRep repo;
+    private ProductRep repo;
 
-        public void add(Product product) {
+    public ProductMng(ProductRep repo) {
+        this.repo = repo;
+    }
+
+    public void add(Product product) {
             repo.save(product);
         }
 
