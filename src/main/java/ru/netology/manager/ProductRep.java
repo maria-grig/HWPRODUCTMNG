@@ -1,7 +1,5 @@
 package ru.netology.manager;
 
-import static javax.swing.UIManager.get;
-
 public class ProductRep {
         private Product[] products = new Product[0];
 
