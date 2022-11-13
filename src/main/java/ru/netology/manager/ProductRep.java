@@ -1,7 +1,7 @@
 package ru.netology.manager;
 
 public class ProductRep {
-        private Product[] products = new Product[0];
+    private Product[] products = new Product[0];
 
     public void save(Product product) {
         Product[] tmp = new Product[products.length + 1];

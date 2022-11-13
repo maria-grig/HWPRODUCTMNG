@@ -29,6 +29,7 @@ class ProductRepTest {
         Product[] actual = repo.findAll();
         assertArrayEquals(expected, actual);
     }
+
     @Test
     public void shouldThrowNotFoundException() {
         repo.save(product5);
