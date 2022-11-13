@@ -3,20 +3,21 @@ package ru.netology.manager;
 import static javax.swing.UIManager.get;
 
 public class ProductRep {
-        private Product[] items = new Product[0];
+        private Product[] products = new Product[0];
 
-        public void save(Product item) {
-            int length = items.length + 1;
-            Product[] tmp = new Product[length];
-            System.arraycopy(items, 0, tmp, 0, items.length);
-            int lastIndex = tmp.length - 1;
-            tmp[lastIndex] = item;
-            items = tmp;
+    public void save(Product product) {
+        Product[] tmp = new Product[products.length + 1];
+        for (int i = 0; i < products.length; i++) {
+            tmp[i] = products[i];
         }
+        tmp[tmp.length - 1] = product;
+        products = tmp;
+    }
 
-        public Product[] findAll() {
-            return items;
-        }
+    public Product[] findAll() {
+        return products;
+    }
+
     public void removeById(int id) {
 
         if (findById(id) == null) {
@@ -24,31 +25,31 @@ public class ProductRep {
                     "Element with id: " + id + " not found"
             );
         } else {
-            int result = 0;
-            for (Product item : items) {
-                if (item.getId() != id) {
-                    result++;
+            int countOfIndex = 0;
+            for (Product prod : products) {
+                if (prod.getId() != id) {
+                    countOfIndex++;
                 }
             }
-            Product[] tmp = new Product[result];
-                for (Product item : items) {
-                if (item.getId() != id) {
-                    tmp[result] = item;
-                    result++;
+            Product[] tmp = new Product[countOfIndex];
+            int copyToIndex = 0;
+            for (Product product : products) {
+                if (product.getId() != id) {
+                    tmp[copyToIndex] = product;
+                    copyToIndex++;
                 }
             }
-            items = tmp;
+            products = tmp;
         }
     }
 
     public Product findById(int id) {
-        for (Product item : items) {
-            if (item.getId() == id) {
-                return item;
+        for (Product product : products) {
+            if (product.getId() == id) {
+                return product;
             }
         }
         return null;
 
     }
-
 }
