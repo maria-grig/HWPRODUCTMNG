@@ -1,5 +1,7 @@
 package ru.netology.manager;
 
+import static javax.swing.UIManager.get;
+
 public class ProductRep {
         private Product[] items = new Product[0];
 
@@ -15,17 +17,38 @@ public class ProductRep {
         public Product[] findAll() {
             return items;
         }
+    public void removeById(int id) {
 
-        public void removeById(int id) {
-            int length = items.length - 1;
-            Product[] tmp = new Product[length];
-            int index = 0;
+        if (findById(id) == null) {
+            throw new NotFoundException(
+                    "Element with id: " + id + " not found"
+            );
+        } else {
+            int result = 0;
             for (Product item : items) {
                 if (item.getId() != id) {
-                    tmp[index] = item;
-                    index++;
+                    result++;
+                }
+            }
+            Product[] tmp = new Product[result];
+                for (Product item : items) {
+                if (item.getId() != id) {
+                    tmp[result] = item;
+                    result++;
                 }
             }
             items = tmp;
         }
     }
+
+    public Product findById(int id) {
+        for (Product item : items) {
+            if (item.getId() == id) {
+                return item;
+            }
+        }
+        return null;
+
+    }
+
+}
