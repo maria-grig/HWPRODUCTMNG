@@ -14,6 +14,7 @@ class ProductRepTest {
     Product product6 = new Smartphone(523, "AndroidPhone", 1000, "Android Inc.");
 
     private ProductRep repo = new ProductRep();
+
     @Test
     public void shouldSaveOneItem() {
         repo.save(product4);
