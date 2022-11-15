@@ -23,6 +23,7 @@ class ProductMngTest {
         Product[] actual = repo.findAll();
         assertArrayEquals(expected, actual);
     }
+
     @Test
     void shouldAddAll() {
         manager.add(product1);
